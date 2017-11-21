@@ -26,5 +26,5 @@ class RbacController extends Controller
         $auth->assign($empregado, 2);
         $auth->assign($admin, 1);
     }
-}
+} //45454
 
