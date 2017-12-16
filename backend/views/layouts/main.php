@@ -31,6 +31,7 @@ AppAsset::register($this);
 
 <body>
 <?php $this->beginBody() ?>
+<section id="container" class="">
 <header class="header dark-bg">
     <div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
@@ -70,7 +71,7 @@ AppAsset::register($this);
                         <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                     </li>
                     <li>
-                        <a href="<?=Url::toRoute(['site/login'])?>"><i class="icon_key_alt"></i> Log Out</a>
+                        <a href="<?=Url::toRoute(['site/logout'])?>" data-method="post"><i class="icon_key_alt"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
@@ -87,20 +88,20 @@ AppAsset::register($this);
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
             <li class="active">
-                <a class="" href="index.html">
+                <a class="" href="<?=Url::toRoute(['site/index'])?>">
                     <i class="icon_house_alt"></i>
-                    <span>Dashboard</span>
+                    <span>Home</span>
                 </a>
             </li>
             <li class="sub-menu">
                 <a href="javascript:;" class="">
                     <i class="icon_document_alt"></i>
-                    <span>Forms</span>
+                    <span>Artigos</span>
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="form_component.html">Form Elements</a></li>
-                    <li><a class="" href="form_validation.html">Form Validation</a></li>
+                    <li><a class="" href="<?=Url::toRoute(['tipo-artigo/index'])?>">Tipo de Artigos</a></li>
+                    <li><a class="" href="<?=Url::toRoute(['artigo/index'])?>">Artigos</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
@@ -159,9 +160,14 @@ AppAsset::register($this);
         <!-- sidebar menu end-->
     </div>
 </aside>
-<!--sidebar end-->
 
-<?= $content ?>
+<!--sidebar end-->
+<section id="main-content">
+    <section class="wrapper">
+    <?= $content ?>
+    </section>
+</section>
+</section>
 <?php $this->endBody() ?>
 </body>
 </html>

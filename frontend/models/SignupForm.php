@@ -3,6 +3,8 @@ namespace frontend\models;
 
 use yii\base\Model;
 use common\models\User;
+use common\models\Cliente;
+use Yii;
 
 /**
  * Signup form
@@ -12,6 +14,8 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $numeroTelefone;
+    public $morada;
 
 
     /**
@@ -22,14 +26,20 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Este utilizador já existe'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Este email já existe'],
+
+            ['numeroTelefone', 'trim'],
+            ['numeroTelefone', 'string', 'min' => 9, 'max' =>9],
+            ['numeroTelefone', 'unique', 'targetClass' => '\common\models\Cliente', 'message' => 'Este numero de telefone já existe'],
+
+            ['morada', 'string', 'max' =>60],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
@@ -52,7 +62,22 @@ class SignupForm extends Model
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
-        
-        return $user->save() ? $user : null;
+
+        $user->save();
+
+
+        $cliente = new Cliente();
+        $cliente->id_user = $user->id;
+        $cliente->email = $user->email;
+        $cliente->numeroTelefone = $this->numeroTelefone;
+        $cliente->morada = $this->morada;
+
+        $cliente->save();
+
+        $auth = Yii::$app->authManager;
+        $clienteRole = $auth->getRole('cliente');
+        $auth->assign($clienteRole, $user->getId());
+
+        return $user;
     }
 }

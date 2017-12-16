@@ -3,7 +3,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
-
+use yii\helpers\ArrayHelper;
 /**
  * Login form
  */
@@ -27,7 +27,7 @@ class LoginForm extends Model
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            ['password', 'validateCampos'],
         ];
     }
 
@@ -47,12 +47,15 @@ class LoginForm extends Model
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
      */
-    public function validatePassword($attribute, $params)
+    public function validateCampos($attribute, $params)
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
+            if (!$user){
+                $this->addError($attribute, 'Utilizador não existe.');
+            }
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Utilizador ou Palavra-passe erradas.');
+                $this->addError($attribute, 'Palavra-passe errada.');
             }
         }
     }
@@ -83,5 +86,16 @@ class LoginForm extends Model
         }
 
         return $this->_user;
+    }
+
+    public function validaUser($role){
+        $auth = Yii::$app->authManager;
+        $user = $this->getUser();
+
+        if ($user != null){
+            $roles = $auth->getRolesByUser($user->getId());
+            return ArrayHelper::isIn($role, $roles);
+        }
+        return null;
     }
 }

@@ -24,11 +24,12 @@ class SiteController extends Controller
                     [
                         'actions' => ['login', 'error'],
                         'allow' => true,
+                        'roles' => ['?'],
                     ],
                     [
                         'actions' => ['logout', 'index'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['admin'],
                     ],
                 ],
             ],
@@ -60,6 +61,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = "main";
         return $this->render('index');
     }
 
@@ -70,15 +72,25 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-//        if (!Yii::$app->user->isGuest) {
-//            return $this->goHome();
-//        }
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $this->layout = "main_login";
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validaUser(Yii::$app->authManager->getRole('admin'))) {
+            if($model->login()){
+                return $this->goBack();
+            }else{
+                return $this->render('login', [
+                    'model' => $model,
+                ]);
+            }
+
         } else {
-            $this->layout = "main_login";
+
             return $this->render('login', [
                 'model' => $model,
             ]);
@@ -96,4 +108,6 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
+
 }
