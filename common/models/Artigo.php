@@ -13,6 +13,10 @@ use Yii;
  * @property string $detalhes
  * @property string $preco
  * @property integer $quantidade
+ *
+ * @property TipoArtigo $idTipoArtigo
+ * @property PedidosEmArtigo[] $pedidosEmArtigos
+ * @property Pedidos[] $idPedidos
  */
 class Artigo extends \yii\db\ActiveRecord
 {
@@ -35,6 +39,7 @@ class Artigo extends \yii\db\ActiveRecord
             [['preco'], 'number'],
             [['nome'], 'string', 'max' => 25],
             [['detalhes'], 'string', 'max' => 100],
+            [['id_tipo_artigo'], 'exist', 'skipOnError' => true, 'targetClass' => TipoArtigo::className(), 'targetAttribute' => ['id_tipo_artigo' => 'id']],
         ];
     }
 
@@ -45,7 +50,7 @@ class Artigo extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_tipo_artigo' => 'Tipo Artigo',
+            'id_tipo_artigo' => 'Id Tipo Artigo',
             'nome' => 'Nome',
             'detalhes' => 'Detalhes',
             'preco' => 'Preco',
@@ -53,4 +58,36 @@ class Artigo extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdTipoArtigo()
+    {
+        return $this->hasOne(TipoArtigo::className(), ['id' => 'id_tipo_artigo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPedidosEmArtigos()
+    {
+        return $this->hasMany(PedidosEmArtigo::className(), ['id_artigo' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdPedidos()
+    {
+        return $this->hasMany(Pedidos::className(), ['id' => 'id_pedidos'])->viaTable('pedidos_em_artigo', ['id_artigo' => 'id']);
+    }
+
+    /**
+     * @inheritdoc
+     * @return ArtigoQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new ArtigoQuery(get_called_class());
+    }
 }

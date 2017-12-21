@@ -10,6 +10,8 @@ use Yii;
  * @property integer $id
  * @property string $nome
  * @property string $detalhes
+ *
+ * @property Artigo[] $artigos
  */
 class TipoArtigo extends \yii\db\ActiveRecord
 {
@@ -42,5 +44,22 @@ class TipoArtigo extends \yii\db\ActiveRecord
             'nome' => 'Nome',
             'detalhes' => 'Detalhes',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArtigos()
+    {
+        return $this->hasMany(Artigo::className(), ['id_tipo_artigo' => 'id']);
+    }
+
+    /**
+     * @inheritdoc
+     * @return ArtigoQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new ArtigoQuery(get_called_class());
     }
 }

@@ -4,10 +4,9 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\TipoArtigo;
-use common\models\TipoArtigoSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
 /**
@@ -21,31 +20,10 @@ class TipoArtigoController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                    'rules' => [
-                    [
-                        'actions' => ['index', 'view'],
-                        'allow' => true,
-                        'roles' => ['admin'],
-                    ],
-                    [
-                        'actions' => ['create', 'index'],
-                        'allow' => true,
-                        'roles' => ['admin'],
-                    ],
-                        [
-                            'actions' => ['update', 'index'],
-                            'allow' => true,
-                            'roles' => ['admin'],
-                        ],
-
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['post'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
@@ -57,11 +35,11 @@ class TipoArtigoController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new TipoArtigoSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => TipoArtigo::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
