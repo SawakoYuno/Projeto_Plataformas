@@ -106,21 +106,26 @@ AppAsset::register($this);
             </li>
             <li class="sub-menu">
                 <a href="javascript:;" class="">
-                    <i class="icon_desktop"></i>
-                    <span>UI Fitures</span>
+                    <i class="icon_profile"></i>
+                    <span>Utilizadores</span>
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="general.html">Elements</a></li>
-                    <li><a class="" href="buttons.html">Buttons</a></li>
-                    <li><a class="" href="grids.html">Grids</a></li>
+                    <li><a class="" href="<?=Url::toRoute(['empregado/index'])?>">Empregados</a></li>
+                    <li><a class="" href="<?=Url::toRoute(['site/index'])?>">Clientes</a></li>
                 </ul>
             </li>
-            <li>
-                <a class="" href="widgets.html">
-                    <i class="icon_genius"></i>
-                    <span>Widgets</span>
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="icon_profile"></i>
+                    <span>Equipas</span>
+                    <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
+                <ul class="sub">
+                    <li><a class="" href="<?=Url::toRoute(['equipa/index'])?>">Equipas de Empregados</a></li>
+                    <li><a class="" href="<?=Url::toRoute(['tipo-equipa/index'])?>">Tipo de Equipas</a></li>
+
+                </ul>
             </li>
             <li>
                 <a class="" href="chart-chartjs.html">

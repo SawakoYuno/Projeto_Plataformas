@@ -56,10 +56,10 @@ class TipoArtigo extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
-     * @return ArtigoQuery the active query used by this AR class.
+     * @return TipoArtigoQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new ArtigoQuery(get_called_class());
+        return new TipoArtigoQuery(get_called_class());
     }
 }

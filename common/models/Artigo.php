@@ -50,7 +50,7 @@ class Artigo extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_tipo_artigo' => 'Id Tipo Artigo',
+            'id_tipo_artigo' => 'Tipo Artigo',
             'nome' => 'Nome',
             'detalhes' => 'Detalhes',
             'preco' => 'Preco',

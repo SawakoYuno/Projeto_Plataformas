@@ -13,6 +13,9 @@ use Yii;
  * @property integer $salario
  * @property integer $horas
  * @property string $horario
+ *
+ * @property User $idUser
+ * @property Equipa $idEquipa
  */
 class Empregado extends \yii\db\ActiveRecord
 {
@@ -33,6 +36,8 @@ class Empregado extends \yii\db\ActiveRecord
             [['id_user', 'id_equipa', 'n_empregado'], 'required'],
             [['id_user', 'id_equipa', 'n_empregado', 'salario', 'horas'], 'integer'],
             [['horario'], 'string', 'max' => 35],
+            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
+            [['id_equipa'], 'exist', 'skipOnError' => true, 'targetClass' => Equipa::className(), 'targetAttribute' => ['id_equipa' => 'id']],
         ];
     }
 
@@ -49,5 +54,30 @@ class Empregado extends \yii\db\ActiveRecord
             'horas' => 'Horas',
             'horario' => 'Horario',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'id_user']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdEquipa()
+    {
+        return $this->hasOne(Equipa::className(), ['id' => 'id_equipa']);
+    }
+
+    /**
+     * @inheritdoc
+     * @return EmpregadoQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new EmpregadoQuery(get_called_class());
     }
 }
