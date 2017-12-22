@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\CreateEmpregado;
 use Yii;
 use common\models\Empregado;
 use yii\data\ActiveDataProvider;
@@ -36,6 +37,11 @@ class EmpregadoController extends Controller
                     ],
                     [
                         'actions' => ['delete', 'index'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
+                    [
+                        'actions' => ['create', 'index'],
                         'allow' => true,
                         'roles' => ['admin'],
                     ],
@@ -84,9 +90,9 @@ class EmpregadoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Empregado();
+        $model = new CreateEmpregado();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
             return $this->redirect(['view', 'id' => $model->id_user]);
         } else {
             return $this->render('create', [

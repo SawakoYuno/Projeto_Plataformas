@@ -1,20 +1,27 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+use common\models\TipoEquipa;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Empregado */
+/* @var $model common\models\CreateEmpregado */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="empregado-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['id' => 'create-empregado']); ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+    <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-    <?= $form->field($model, 'id_equipa')->textInput() ?>
+    <?= $form->field($model, 'email') ?>
+
+    <?=
+    $form->field($model, 'id_equipa')->dropDownList(ArrayHelper::map(TipoEquipa::find()->all(),
+        'id','nome'),['prompt'=>'Selecione um tipo']);
+    ?>
 
     <?= $form->field($model, 'n_empregado')->textInput() ?>
 

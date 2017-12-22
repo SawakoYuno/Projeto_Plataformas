@@ -30,18 +30,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 <th>Destalhes</th>
                 </tr>
                 <?php
-                $models = TipoArtigo::find()->all();
-                foreach ($models as $model) {
+                $tipoartigos = TipoArtigo::find()->all();
+                foreach ($tipoartigos as $tipoartigo) {
                 ?>
                 <tr>
-                    <td>  <?= $model->id;?></td>
-                    <td>  <?= $model->nome;?></td>
-                    <td>  <?= $model->detalhes;?></td>
+                    <td>  <?= $tipoartigo->id;?></td>
+                    <td>  <?= $tipoartigo->nome;?></td>
+                    <td>  <?= $tipoartigo->detalhes;?></td>
                     <td>
-                        <a href="<?=Url::toRoute(['tipo-artigo/update', 'id'=>$model->id])?>" title="Atualizar" aria-label="Atualizar" data-pjax="0">
+                        <a href="<?=Url::toRoute(['tipo-artigo/update', 'id'=>$tipoartigo->id])?>" title="Atualizar" aria-label="Atualizar" data-pjax="0">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
-                        <a href="<?=Url::toRoute(['tipo-artigo/delete', 'id'=>$model->id])?>" title="Apagar" aria-label="Apagar" data-pjax="0"
+                        <a href="<?=Url::toRoute(['tipo-artigo/delete', 'id'=>$tipoartigo->id])?>" title="Apagar" aria-label="Apagar" data-pjax="0"
                            data-confirm="Are you sure you want to delete this item?" data-method="post">
                             <span class="glyphicon glyphicon-trash"></span></a>
                     </td>
