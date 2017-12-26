@@ -2,51 +2,47 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+//$this->title = 'My Yii Application';
 ?>
-<div class="site-index">
+<div class="jumbotron">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+    <div class="col-lg-2">
+        <a href="http://localhost/Projeto_Plataformas/frontend/web"><img src="logo.png" style="width:42px;height:42px;border:0;" alt="Responsive Image" ></a> <!--Por acabar -->
+    </div>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+    <div class="col-lg-2">
+        <p><a class="btn btn-lg" href="site\ementa">Ementa</a></p>
+    </div>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+    <div class="col-lg-2">
+        <p><a class="btn btn-lg" href="site\reservas">Reservas</a></p>
+    </div>
+
+    <div class="col-lg-2">
+        <p><a class="btn btn-lg" href="site\sobre">Sobre</a></p>
+    </div>
+
+    <div class="col-lg-2">
+        <p><a class="btn btn-lg" href="site\contactos">Contactos</a></p>
     </div>
 
     <div class="body-content">
 
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="col-lg-10">
+                <h2>Prato do Dia</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Linda ementa efetuada pelo chefe Miguel Gameiro.</p> <!-- COLOCAR IMAGEM OU ANIMAÇÃO COM O PRATO DO DIA -->
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Especialidades</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Carne de João à Alentejana</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
         </div>
 
     </div>
