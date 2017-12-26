@@ -32,10 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 </tr>
                 <?php
                 $equipas = Equipa::find()->all();
-                $tipoequipas = TipoEquipa::find()->all();
                 foreach ($equipas as $equipa) {
-                    foreach ($tipoequipas as $tipoequipa) {
-                        ?>
+                    $tipoequipa = TipoEquipa::find()
+                        ->where(['id' => $equipa->id_tipo_equipa])
+                        ->one();
+                    ?>
                         <tr>
                             <td>  <?= $equipa->id;?></td>
                             <td>  <?= $tipoequipa->tipo;?></td>
@@ -49,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <span class="glyphicon glyphicon-trash"></span></a>
                             </td>
                         </tr>
-                    <?php }}?>
+                    <?php }?>
             </table>
         </div>
     </div>

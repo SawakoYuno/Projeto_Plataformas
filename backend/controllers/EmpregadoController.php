@@ -2,9 +2,9 @@
 
 namespace backend\controllers;
 
-use common\models\CreateEmpregado;
 use Yii;
 use common\models\Empregado;
+use common\models\CreateEmpregado;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -93,12 +93,14 @@ class EmpregadoController extends Controller
         $model = new CreateEmpregado();
 
         if ($model->load(Yii::$app->request->post())) {
-            return $this->redirect(['view', 'id' => $model->id_user]);
-        } else {
+            if ($user = $model->CriarEmpregado()) {
+                return $this->goHome();
+            }
+        }
             return $this->render('create', [
                 'model' => $model,
             ]);
-        }
+
     }
 
     /**

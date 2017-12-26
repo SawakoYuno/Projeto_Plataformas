@@ -5,7 +5,6 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use common\models\TipoArtigo;
 
-
 /* @var $this yii\web\View */
 /* @var $model common\models\Artigo */
 /* @var $form yii\widgets\ActiveForm */
