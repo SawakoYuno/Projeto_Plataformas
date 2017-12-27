@@ -38,10 +38,11 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'Artigo', 'url' => ['/artigo/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
+        ['label' => 'About', 'url' => ['/site/sobre']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => 'Sobre', 'url' => ['/site/sobre']];
         $menuItems[] = ['label' => 'Ementa', 'url' => ['/artigo/index']];
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];

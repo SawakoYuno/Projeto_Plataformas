@@ -15,7 +15,4 @@ $this->params['breadcrumbs'][] = $this->title;
     <code><?= __FILE__ ?></code>
 </div>
 
-mas aquilo nem está a encontrar o sobre....
-pk nao tens controller dessa merda. acho que e isso, .
-Então e preciso de controller para uma página só com palha???
-utiiza esta que esta ja esta no site controller
+

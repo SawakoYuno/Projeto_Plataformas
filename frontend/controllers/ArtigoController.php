@@ -32,11 +32,7 @@ class ArtigoController extends Controller
                     [
                         'actions' => ['view', 'index'],
                         'allow' => true,
-<<<<<<< Updated upstream
                         'roles' => ['@'],
-=======
-                        'roles' => ['?'],
->>>>>>> Stashed changes
                     ],
                     [
                         'actions' => ['delete', 'index'],
