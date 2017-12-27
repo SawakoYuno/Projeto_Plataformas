@@ -39,6 +39,7 @@ class SiteController extends Controller
                         'roles' => ['@'],
                     ],
 
+
                 ],
             ],
             'verbs' => [
