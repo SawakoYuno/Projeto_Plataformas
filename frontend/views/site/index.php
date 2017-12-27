@@ -2,14 +2,43 @@
 
 /* @var $this yii\web\View */
 
+<<<<<<< Updated upstream
 $this->title = 'My Yii Application';
+=======
+use yii\helpers\Url;
+
+//$this->title = 'My Yii Application';
+>>>>>>> Stashed changes
 ?>
 <div class="site-index">
 
+<<<<<<< Updated upstream
     <div class="jumbotron">
         <h1>Congratulations!</h1>
 
         <p class="lead">You have successfully created your Yii-powered application.</p>
+=======
+    <div class="col-lg-2">
+        <a href="http://localhost/Projeto_Plataformas/frontend/web"><img src="logo.png" style="width:42px;height:42px;border:0;" alt="Responsive Image" ></a> <!--Por acabar -->
+    </div>
+
+    <div class="col-lg-2">
+        <p>
+            <a href="" title="Ementa" aria-label="Ementa" data-pjax="0">
+            <span class="btn btn-lg"></span>
+        </a> </p>
+    </div>
+
+    <div class="col-lg-2">
+        <p>   <a class="" href="<?=Url::toRoute(['artigo/index'])?>">
+                <span>Home</span>
+            </a></p>
+    </div>
+
+    <div class="col-lg-2">
+        <p><a class="btn btn-lg" href="site\sobre">Sobre</a></p>
+    </div>
+>>>>>>> Stashed changes
 
         <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
     </div>
