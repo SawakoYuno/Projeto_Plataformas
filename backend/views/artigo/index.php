@@ -35,9 +35,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 </tr>
                 <?php
                 $artigos = Artigo::find()->all();
-                $tipoartigos = TipoArtigo::find()->all();
+
                 foreach ($artigos as $artigo) {
-                foreach ($tipoartigos as $tipoartigo) {
+                    $tipoartigo = TipoArtigo::find()
+                        ->where(['id' => $artigo->id_tipo_artigo])
+                        ->one();
                     ?>
                     <tr>
                         <td>  <?= $artigo->id;?></td>
@@ -55,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span class="glyphicon glyphicon-trash"></span></a>
                         </td>
                     </tr>
-                <?php }}?>
+                <?php }?>
             </table>
         </div>
     </div>

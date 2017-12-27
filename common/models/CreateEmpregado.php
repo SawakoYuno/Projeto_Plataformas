@@ -1,6 +1,7 @@
 <?php
 namespace common\models;
 
+use function Couchbase\basicDecoderV1;
 use yii\base\Model;
 use common\models\User;
 use common\models\Empregado;
@@ -9,7 +10,9 @@ use Yii;
 class CreateEmpregado extends Model
 {
     public $username;
+    public $email;
     public $password;
+    public $id_equipa;
     public $n_empregado;
     public $salario;
     public $horas;
@@ -24,23 +27,31 @@ class CreateEmpregado extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Este utilizador já existe'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Este Empregado já existe'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
-            ['n_empregado', 'trim'],
-            ['n_empregado', 'integer', 'min' => 5, 'max' =>5],
-            ['n_empregado', 'unique', 'targetClass' => '\common\models\Cliente', 'message' => 'Este numero de empregado já existe'],
+            ['email', 'trim'],
+            ['email', 'required'],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Este email já existe'],
 
-            ['salario', 'trim'],
+            ['id_equipa', 'required'],
+            ['id_equipa', 'integer'],
+
+            ['n_empregado', 'trim'],
+            ['n_empregado', 'integer', 'min' => 0, 'max' =>9999],
+            ['n_empregado', 'unique', 'targetClass' => '\common\models\Empregado', 'message' => 'Este numero de empregado já existe'],
+
             ['salario', 'required'],
-            ['salario', 'int', 'max' =>5],
+            ['salario', 'integer', 'min' => 580, 'max' =>2000],
 
             ['horas', 'trim'],
-            ['horas', 'double', 'max' =>5],
+            ['horas', 'integer', 'max' =>12],
 
             ['horario', 'trim'],
             ['horario', 'required'],
-            ['horario', 'double', 'max' =>35],
+            ['horario', 'string', 'max' =>35],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
@@ -50,9 +61,8 @@ class CreateEmpregado extends Model
     /**
      * Signs user up.
      *
-     * @return User|null the saved model or null if saving fails
      */
-    public function CreateEmpregado()
+    public function CriarEmpregado()
     {
         if (!$this->validate()) {
             return null;
@@ -66,10 +76,11 @@ class CreateEmpregado extends Model
 
         $user->save();
 
-
         $empregado = new Empregado();
         $empregado->id_user = $user->id;
-        $empregado->n_empregado = $this->numeroTelefone;
+        $empregado->email = $user->email;
+        $empregado->id_equipa = $this->id_equipa;
+        $empregado->n_empregado = $this->n_empregado;
         $empregado->salario = $this->salario;
         $empregado->horas = $this->horas;
         $empregado->horario = $this->horario;
@@ -81,5 +92,6 @@ class CreateEmpregado extends Model
         $auth->assign($empregadoRole, $user->getId());
 
         return $user;
+
     }
 }

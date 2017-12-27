@@ -11,6 +11,8 @@ use Yii;
  * @property string $email
  * @property string $numeroTelefone
  * @property string $morada
+ *
+ * @property User $idUser
  */
 class Cliente extends \yii\db\ActiveRecord
 {
@@ -33,6 +35,7 @@ class Cliente extends \yii\db\ActiveRecord
             [['email'], 'string', 'max' => 45],
             [['numeroTelefone'], 'string', 'max' => 25],
             [['morada'], 'string', 'max' => 60],
+            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
 
@@ -47,5 +50,22 @@ class Cliente extends \yii\db\ActiveRecord
             'numeroTelefone' => 'Numero Telefone',
             'morada' => 'Morada',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'id_user']);
+    }
+
+    /**
+     * @inheritdoc
+     * @return ClienteQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new ClienteQuery(get_called_class());
     }
 }

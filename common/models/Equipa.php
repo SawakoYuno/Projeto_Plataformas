@@ -45,7 +45,7 @@ class Equipa extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'nome' => 'Nome',
-            'id_tipo_equipa' => 'Id Tipo Equipa',
+            'id_tipo_equipa' => 'Tipo Equipa',
         ];
     }
 

@@ -1,25 +1,26 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
-use common\models\TipoEquipa;
+use yii\helpers\ArrayHelper;
+use common\models\Equipa;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\CreateEmpregado */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $form yii\bootstrap\ActiveForm */
+
 ?>
 
-<div class="empregado-form">
+<div class="CreateEmpregado-form">
 
-    <?php $form = ActiveForm::begin(['id' => 'create-empregado']); ?>
+    <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
     <?= $form->field($model, 'email') ?>
 
     <?=
-    $form->field($model, 'id_equipa')->dropDownList(ArrayHelper::map(TipoEquipa::find()->all(),
+        $form->field($model, 'id_equipa')->dropDownList(ArrayHelper::map(Equipa::find()->all(),
         'id','nome'),['prompt'=>'Selecione um tipo']);
     ?>
 
@@ -31,8 +32,11 @@ use common\models\TipoEquipa;
 
     <?= $form->field($model, 'horario')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'password')->passwordInput() ?>
+
+
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton('Criar Empregado', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
