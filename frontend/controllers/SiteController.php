@@ -147,6 +147,7 @@ class SiteController extends Controller
         return $this->render('sobre');
     }
 
+
     /**
      * Signs user up.
      *
