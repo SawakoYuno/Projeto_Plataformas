@@ -11,6 +11,7 @@ class CreateEmpregado extends Model
 {
     public $username;
     public $email;
+    public $nome;
     public $password;
     public $id_equipa;
     public $n_empregado;
@@ -35,6 +36,10 @@ class CreateEmpregado extends Model
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Este email já existe'],
+
+            ['nome', 'trim'],
+            ['nome', 'required'],
+            ['nome', 'string', 'max' => 60],
 
             ['id_equipa', 'required'],
             ['id_equipa', 'integer'],
@@ -79,6 +84,7 @@ class CreateEmpregado extends Model
         $empregado = new Empregado();
         $empregado->id_user = $user->id;
         $empregado->email = $user->email;
+        $empregado->nome = $this->nome;
         $empregado->id_equipa = $this->id_equipa;
         $empregado->n_empregado = $this->n_empregado;
         $empregado->salario = $this->salario;

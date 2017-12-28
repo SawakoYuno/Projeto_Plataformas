@@ -19,6 +19,8 @@ use common\models\Equipa;
 
     <?= $form->field($model, 'email') ?>
 
+    <?= $form->field($model, 'nome') ?>
+
     <?=
         $form->field($model, 'id_equipa')->dropDownList(ArrayHelper::map(Equipa::find()->all(),
         'id','nome'),['prompt'=>'Selecione um tipo']);

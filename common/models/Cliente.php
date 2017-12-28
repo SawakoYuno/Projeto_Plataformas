@@ -11,6 +11,7 @@ use Yii;
  * @property string $email
  * @property string $numeroTelefone
  * @property string $morada
+ * @property string $nome
  *
  * @property User $idUser
  */
@@ -30,11 +31,11 @@ class Cliente extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'email'], 'required'],
+            [['id_user', 'email', 'nome'], 'required'],
             [['id_user'], 'integer'],
             [['email'], 'string', 'max' => 45],
             [['numeroTelefone'], 'string', 'max' => 25],
-            [['morada'], 'string', 'max' => 60],
+            [['morada', 'nome'], 'string', 'max' => 60],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
@@ -49,6 +50,7 @@ class Cliente extends \yii\db\ActiveRecord
             'email' => 'Email',
             'numeroTelefone' => 'Numero Telefone',
             'morada' => 'Morada',
+            'nome' => 'Nome',
         ];
     }
 

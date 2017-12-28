@@ -13,6 +13,7 @@ class SignupForm extends Model
 {
     public $username;
     public $email;
+    public $nome;
     public $password;
     public $numeroTelefone;
     public $morada;
@@ -34,6 +35,10 @@ class SignupForm extends Model
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Este email já existe'],
+
+            ['nome', 'trim'],
+            ['nome', 'required'],
+            ['nome', 'string', 'max' => 60],
 
             ['numeroTelefone', 'trim'],
             ['numeroTelefone', 'string', 'min' => 9, 'max' =>9],
@@ -65,10 +70,10 @@ class SignupForm extends Model
 
         $user->save();
 
-
         $cliente = new Cliente();
         $cliente->id_user = $user->id;
         $cliente->email = $user->email;
+        $cliente->nome = $this->nome;
         $cliente->numeroTelefone = $this->numeroTelefone;
         $cliente->morada = $this->morada;
 

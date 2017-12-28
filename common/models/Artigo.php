@@ -13,6 +13,7 @@ use Yii;
  * @property string $detalhes
  * @property string $preco
  * @property integer $quantidade
+ * @property string $imagem_artigo
  *
  * @property TipoArtigo $idTipoArtigo
  * @property PedidosEmArtigo[] $pedidosEmArtigos
@@ -34,11 +35,12 @@ class Artigo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_tipo_artigo'], 'required'],
+            [['id_tipo_artigo', 'imagem_artigo'], 'required'],
             [['id_tipo_artigo', 'quantidade'], 'integer'],
             [['preco'], 'number'],
             [['nome'], 'string', 'max' => 25],
             [['detalhes'], 'string', 'max' => 100],
+            [['imagem_artigo'], 'string', 'max' => 200],
             [['id_tipo_artigo'], 'exist', 'skipOnError' => true, 'targetClass' => TipoArtigo::className(), 'targetAttribute' => ['id_tipo_artigo' => 'id']],
         ];
     }
@@ -50,11 +52,12 @@ class Artigo extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_tipo_artigo' => 'Tipo Artigo',
+            'id_tipo_artigo' => 'Id Tipo Artigo',
             'nome' => 'Nome',
             'detalhes' => 'Detalhes',
             'preco' => 'Preco',
             'quantidade' => 'Quantidade',
+            'imagem_artigo' => 'Imagem Artigo',
         ];
     }
 

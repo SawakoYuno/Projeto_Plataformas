@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <th>Destalhes</th>
                     <th>Preço</th>
                     <th>Quantidade</th>
+
                 </tr>
                 <?php
                 $artigos = Artigo::find()->all();
@@ -48,6 +49,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td>  <?= $artigo->detalhes;?></td>
                         <td>  <?= $artigo->preco;?></td>
                         <td>  <?= $artigo->quantidade;?></td>
+
+
                         <td>
                             <a href="<?=Url::toRoute(['artigo/update', 'id'=>$artigo->id])?>" title="Atualizar" aria-label="Atualizar" data-pjax="0">
                                 <span class="glyphicon glyphicon-pencil"></span>

@@ -14,6 +14,7 @@ use Yii;
  * @property integer $horas
  * @property string $horario
  * @property string $email
+ * @property string $nome
  *
  * @property User $idUser
  * @property Equipa $idEquipa
@@ -34,10 +35,11 @@ class Empregado extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'id_equipa', 'n_empregado', 'email'], 'required'],
+            [['id_user', 'id_equipa', 'n_empregado', 'email', 'nome'], 'required'],
             [['id_user', 'id_equipa', 'n_empregado', 'salario', 'horas'], 'integer'],
             [['horario'], 'string', 'max' => 35],
             [['email'], 'string', 'max' => 45],
+            [['nome'], 'string', 'max' => 60],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
             [['id_equipa'], 'exist', 'skipOnError' => true, 'targetClass' => Equipa::className(), 'targetAttribute' => ['id_equipa' => 'id']],
         ];
@@ -56,6 +58,7 @@ class Empregado extends \yii\db\ActiveRecord
             'horas' => 'Horas',
             'horario' => 'Horario',
             'email' => 'Email',
+            'nome' => 'Nome',
         ];
     }
 

@@ -12,7 +12,7 @@ use common\models\TipoArtigo;
 
 <div class="artigo-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
 
     <?=
         $form->field($model, 'id_tipo_artigo')->dropDownList(ArrayHelper::map(TipoArtigo::find()->all(),
@@ -26,6 +26,8 @@ use common\models\TipoArtigo;
     <?= $form->field($model, 'preco')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'quantidade')->textInput() ?>
+
+    <?= $form->field($model, 'imagem_artigo')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

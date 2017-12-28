@@ -28,7 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tr>
                     <th>#</th>
                     <th>Nome:</th>
-                    <th>email</th>
+                    <th>Email</th>
+                    <th>Nome</th>
                     <th>Equipa</th>
                     <th>Nº de Empregado</th>
                     <th>Salário</th>
@@ -46,6 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <td>  <?= $empregado->id_user;?></td>
                             <td>  <?= $utilizadore->username;?></td>
                             <td>  <?= $empregado->email;?></td>
+                            <td>  <?= $empregado->nome;?></td>
                             <td>  <?= $equipa->nome;?></td>
                             <td>  <?= $empregado->n_empregado;?></td>
                             <td>  <?= $empregado->salario;?></td>
