@@ -147,6 +147,16 @@ class SiteController extends Controller
         return $this->render('sobre');
     }
 
+    public function actionContactos()
+    {
+        return $this->render('contactos');
+    }
+
+    public function actionReserva()
+    {
+        return $this->render('reserva');
+    }
+
 
     /**
      * Signs user up.

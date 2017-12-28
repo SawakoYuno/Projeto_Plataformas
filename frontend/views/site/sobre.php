@@ -31,17 +31,17 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="body-content">
     <div class="col-lg-10">
         <h1>Galeria:</h1>
-        <div class="col-lg-4"> imagem.</div>
-        <div class="col-lg-4"> imagem.</div>
-        <div class="col-lg-4"> imagem.</div>
+        <div class="col-lg-4">  <?=Html::img('@web/img/177750.jpg');?></div>
+        <div class="col-lg-4"> <?=Html::img('@web/img/fasano_restaurante_300.jpg');?></div>
+        <div class="col-lg-4">  <?=Html::img('@web/img/restaurantes-montevideu-centro-rara-avis-300x300.jpg');?></div>
     </div>
 
 
 </div>
 
-<div class="jumbotron">
-    <div class="col-lg-10" id="map">My map will go here</div> <!-- Por acabar -->
-</div>
+<!-- <div class="jumbotron">
+    <div class="col-lg-10" id="map">My map will go here</div>  Por acabar -->
+
 
 
 

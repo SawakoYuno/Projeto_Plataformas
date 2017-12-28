@@ -12,7 +12,8 @@ $this->title = 'Contactos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="col-lg-4">
+        <h1><?= Html::encode($this->title) ?></h1>
     <p>
         Morada: R.Gen. Norton de Matos, 2411-901
     </p>
@@ -31,10 +32,25 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         Email: 2160475@my.ipleiria.pt
     </p>
-
+    </div>
     <div class="row">
-        <div class="col-lg-5">
-
+        <div id="map"></div>
+            <script>
+                function initMap() {
+                    var uluru = {lat: 39.73440, lng: -8.820847};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15,
+                        center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                        position: uluru,
+                        map: map
+                    });
+                }
+            </script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNPatn7Z5HYyP9jyVBa-eS47WjS3e5DZQ&callback=initMap">
+            </script>
 
 
         </div>

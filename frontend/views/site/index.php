@@ -1,35 +1,46 @@
 <?php
-
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Vanilla';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Prato do dia</h1>
+        <h1><strong>Prato do dia</strong></h1>
 
-        <p class="lead">Lindo prato efetuado pelo chefe Miguel Gameiro. (Colocar imagem)</p>
+        <?=Html::img('@web/img/bife_pimenta.jpg');?>
+        <p class="lead">Bife com molho de pimenta</p>
 
-       <!-- <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p> -->
+
+
+        <!-- <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p> -->
     </div>
 
     <div class="site-index">
 
-        <div class="jumbotron">
-            <div class="col-lg-12">
-                    <h2>Especialidades</h2>
+
+            <div style="text-align: center">
+                <h2><strong>Especialidades</strong></h2>
                     <!-- <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p> -->
             </div>
-            <div class="col-lg-4">
-                <p>Carne de João à Alentejana.</p>
+            <div>
+
+                <?=Html::img('@web/img/bife_a_portuguesa.jpg');?>
+                <p>Bife à Portuguesa</p>
+
             </div>
-            <div class="col-lg-4">
-            <p>Carne de Jéssica remolhada</p>
+            <div>
+
+                <?=Html::img('@web/img/salmao_grelhado_com_legumes.jpg');?>
+                <p>Salmão Grelhado com Legumes</p>
             </div>
-            <div class="col-lg-4">
-                <p>Carne de Joaquim Gourmet</p>
+            <div>
+                <?=Html::img('@web/img/lombinhos_de_porco_preto.jpg');?>
+                <p>Lombinhos de Porco Preto</p>
             </div>
-        </div>
     </div>
+
 </div>

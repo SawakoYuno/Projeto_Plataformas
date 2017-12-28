@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => "Vanilla", //Html::img('img/logo.png')
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -37,9 +37,10 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Artigo', 'url' => ['/artigo/index']],
-        ['label' => 'Sobre', 'url' => ['/site/sobre']],
-        ['label' => 'Contactos', 'url' => ['/site/contact']], //não completo
+        ['label' => 'Reserva', 'url' => ['/site/reserva']],
+        ['label' => 'Contactos', 'url' => ['/site/contactos']],
+
+
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Sobre', 'url' => ['/site/sobre']];
