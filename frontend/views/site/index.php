@@ -1,4 +1,6 @@
 <?php
+
+use yii\bootstrap\Carousel;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
