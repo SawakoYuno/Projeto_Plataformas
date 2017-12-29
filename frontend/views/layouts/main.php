@@ -37,7 +37,7 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Reserva', 'url' => ['/site/reserva']],
+        ['label' => 'Reserva', 'url' => ['/reserva/create']],
         ['label' => 'Contactos', 'url' => ['/site/contactos']],
 
 
