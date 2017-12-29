@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <th>Destalhes</th>
                     <th>Preço</th>
                     <th>Quantidade</th>
+                    <th>Img</th>
 
                 </tr>
                 <?php
@@ -49,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td>  <?= $artigo->detalhes;?></td>
                         <td>  <?= $artigo->preco;?></td>
                         <td>  <?= $artigo->quantidade;?></td>
+                        <td> <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagens_artigos']);?></td>
 
 
                         <td>

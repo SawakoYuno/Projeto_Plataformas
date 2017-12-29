@@ -118,3 +118,8 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+#imagens_artigos{
+    width: 400px;
+    height: 225px;
+}
