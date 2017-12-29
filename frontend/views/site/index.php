@@ -7,8 +7,7 @@ use yii\helpers\Url;
 $this->title = 'Vanilla';
 ?>
 <div class="site-index">
-
-    <div class="jumbotron">
+  <div class="jumbotron">
         <h1><strong>Prato do dia</strong></h1>
 
         <?=Html::img('@web/img/bife_pimenta.jpg');?>
@@ -26,21 +25,27 @@ $this->title = 'Vanilla';
                 <h2><strong>Especialidades</strong></h2>
                     <!-- <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p> -->
             </div>
-            <div>
+        <table style="width:80%">
 
-                <?=Html::img('@web/img/bife_a_portuguesa.jpg');?>
-                <p>Bife à Portuguesa</p>
+            <tr>
+                <td>
+                    <?=Html::img('@web/img/bife_a_portuguesa.jpg', ['id' => 'imagem-teste']);?>
+                    <p id="texto">Bife à Portuguesa</p>
+                </td>
+                <td>
+                    <?=Html::img('@web/img/salmao_grelhado_com_legumes.jpg', ['id' => 'imagem-teste']);?>
+                    <p id="texto">Salmão Grelhado com Legumes</p>
+                </td>
+                <td>
+                    <?=Html::img('@web/img/lombinhos_de_porco_preto.jpg', ['id' => 'imagem-teste']);?>
+                    <p id="texto">Lombinhos de Porco Preto</p>
+                </td>
+            </tr>
 
-            </div>
-            <div>
 
-                <?=Html::img('@web/img/salmao_grelhado_com_legumes.jpg');?>
-                <p>Salmão Grelhado com Legumes</p>
-            </div>
-            <div>
-                <?=Html::img('@web/img/lombinhos_de_porco_preto.jpg');?>
-                <p>Lombinhos de Porco Preto</p>
-            </div>
+            </tr>
+        </table>
+
     </div>
 
 </div>
