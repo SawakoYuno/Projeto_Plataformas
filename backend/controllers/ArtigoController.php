@@ -93,16 +93,15 @@ class ArtigoController extends Controller
     {
         $model = new Artigo();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->save();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
             $artigoId = $model->nome;
             $image = UploadedFile::getInstance($model, 'imagem_artigo');
             $imgName = 'stu_' . $artigoId . '.' . $image->getExtension();
             $image->saveAs(Yii::getAlias('@artigoImgPath') . '/' . $imgName);
             $model->imagem_artigo = $imgName;
-
             $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -120,8 +119,8 @@ class ArtigoController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->save();
+        if ($model->load(Yii::$app->request->post()) &&  $model->save()) {
+
             $artigoId = $model->nome;
             $image = UploadedFile::getInstance($model, 'imagem_artigo');
             $imgName = 'stu_' . $artigoId . '.' . $image->getExtension();

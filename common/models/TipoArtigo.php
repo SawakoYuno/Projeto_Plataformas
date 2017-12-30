@@ -30,6 +30,7 @@ class TipoArtigo extends \yii\db\ActiveRecord
     {
         return [
             [['nome'], 'string', 'max' => 25],
+            [['nome'], 'required'],
             [['detalhes'], 'string', 'max' => 100],
         ];
     }

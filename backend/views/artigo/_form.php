@@ -16,7 +16,7 @@ use common\models\TipoArtigo;
 
     <?=
         $form->field($model, 'id_tipo_artigo')->dropDownList(ArrayHelper::map(TipoArtigo::find()->all(),
-            'id','nome'),['prompt'=>'Selecione um tipo']);
+        'id','nome'),['prompt'=>'Selecione um tipo']);
     ?>
 
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>

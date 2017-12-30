@@ -35,7 +35,7 @@ class Artigo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_tipo_artigo', 'imagem_artigo'], 'required'],
+            [['id_tipo_artigo'], 'required'],
             [['id_tipo_artigo', 'quantidade'], 'integer'],
             [['preco'], 'number'],
             [['nome'], 'string', 'max' => 25],
