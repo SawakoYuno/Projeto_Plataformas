@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="artigo-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><strong>Entradas</strong></h1>
 
 
     <?php
