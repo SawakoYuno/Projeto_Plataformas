@@ -35,7 +35,7 @@ $this->title = 'Vanilla';
                 echo Carousel::widget([
                     'items' => [
 
-                        ['content'=>  Html::img('@web/img/bife_a_portuguesa.jpg', ['id'=>'imagem-slide'])],
+                        ['content'=>  Html::img('@web/img/frango_assado_no_churrasco.jpg', ['id'=>'imagem-slide'])],
                         ['content'=>  Html::img('@web/img/salmao_grelhado_com_legumes.jpg', ['id' => 'imagem-slide'])],
                         ['content'=>  Html::img('@web/img/lombinhos_de_porco_preto.jpg', ['id' => 'imagem-slide'])],
                     ],
