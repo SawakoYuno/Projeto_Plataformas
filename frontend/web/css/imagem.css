@@ -5,6 +5,20 @@
     margin-right: 50px;
 }
 
+#imagem-ementa{
+    width: 300px;
+    height: 168.75px;
+    margin-top: 50px;
+    margin-right: 50px;
+
+}
+
+#textoImgEmenta{
+    text-align: center;
+    font-size: medium;
+    margin-right: 50px;
+}
+
 #texto{
     font-size: large;
     text-align: center;

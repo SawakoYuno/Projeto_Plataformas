@@ -137,10 +137,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
+
 
     public function actionSobre()
     {
@@ -152,13 +149,8 @@ class SiteController extends Controller
         return $this->render('contactos');
     }
 
-    public function actionReserva()
-    {
-        return $this->render('reserva');
-    }
 
-
-    /**
+        /**
      * Signs user up.
      *
      * @return mixed
