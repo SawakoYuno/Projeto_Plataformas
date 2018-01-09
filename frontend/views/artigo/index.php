@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'header'=>"<h4 id ='nome'></h4>",
             'id' => 'modal',
         'closeButton' => [
-            'label' => 'Close',
+            'label' => 'Fechar',
             'class' => 'btn btn-danger btn-sm pull-right',
         ],
         'size' => 'modal-md',

@@ -50,6 +50,10 @@ class ArtigoController extends Controller
                         'actions' => ['detalhes', 'index'],
                         'allow' => true,
                     ],
+                    [
+                        'actions' => ['bebidas', 'index'],
+                        'allow' => true,
+                    ],
                 ],
             ],
 
@@ -157,6 +161,17 @@ class ArtigoController extends Controller
     public function actionDetalhes($id){
         Yii::$app->response->format = Response::FORMAT_JSON;
         return Artigo::findOne(['id'=>$id]);
+    }
+
+    public function actionBebidas()
+    {
+        $artigos = Artigo::find()
+            ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
+            ->all();
+
+        return $this->render('bebidas', [
+            'artigos' => $artigos,
+        ]);
     }
 
     /**

@@ -12,6 +12,9 @@ use Yii;
  * @property string $numeroTelefone
  * @property integer $quantidade_pessoas
  * @property string $horario
+ * @property integer $id_mesa
+ *
+ * @property Mesa $idMesa
  */
 class Reserva extends \yii\db\ActiveRecord
 {
@@ -29,10 +32,12 @@ class Reserva extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['quantidade_pessoas'], 'integer'],
+            [['id'], 'required'],
+            [['id', 'quantidade_pessoas', 'id_mesa'], 'integer'],
             [['nome'], 'string', 'max' => 60],
             [['numeroTelefone'], 'string', 'max' => 25],
             [['horario'], 'string', 'max' => 10],
+            [['id_mesa'], 'exist', 'skipOnError' => true, 'targetClass' => Mesa::className(), 'targetAttribute' => ['id_mesa' => 'id']],
         ];
     }
 
@@ -47,7 +52,16 @@ class Reserva extends \yii\db\ActiveRecord
             'numeroTelefone' => 'Numero Telefone',
             'quantidade_pessoas' => 'Quantidade Pessoas',
             'horario' => 'Horario',
+            'id_mesa' => 'Id Mesa',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdMesa()
+    {
+        return $this->hasOne(Mesa::className(), ['id' => 'id_mesa']);
     }
 
     /**
