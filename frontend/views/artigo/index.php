@@ -26,6 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'size' => 'modal-md',
     ]);
     ?>
+
     <div align="center">
     <?= Html::img('', ['id' => 'imagem', 'class' =>'imagem-detalhes'])?>
     </div>
