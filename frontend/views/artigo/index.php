@@ -23,9 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
         ->where('artigo.id_tipo_artigo =1')
         ->all();
-
-
-
     ?>
 
 
@@ -39,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-6 col-md-4">
 
             <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
-
 
             <div id="textoImgEmenta"><?= $artigo->nome;?></div>
 
@@ -115,16 +111,11 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <h1><strong>Sobremesas</strong></h1>
-
-
     <?php
     $artigos = Artigo::find()
         ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
         ->where('artigo.id_tipo_artigo =4')
         ->all();
-
-
-
     ?>
 
 
@@ -139,14 +130,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
 
-
                 <div id="textoImgEmenta"><?= $artigo->nome;?></div>
-
             </div>
         <?php }?>
-
     </div>
-
     <h1><strong>Sopas</strong></h1>
 
 
@@ -155,9 +142,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
         ->where('artigo.id_tipo_artigo =5')
         ->all();
-
-
-
     ?>
 
 
