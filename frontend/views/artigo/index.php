@@ -35,6 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
         <div class="col-6 col-md-4">
 
+
+
             <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
 
             <div id="textoImgEmenta"><?= $artigo->nome;?></div>

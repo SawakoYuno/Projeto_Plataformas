@@ -45,6 +45,11 @@ class ArtigoController extends Controller
                         'allow' => true,
                         'roles' => ['admin'],
                     ],
+                    [
+                        'actions' => ['detalhes', 'index'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
                 ],
             ],
 
@@ -163,5 +168,10 @@ class ArtigoController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionDetalhes()
+    {
+        return $this->render('detalhes');
     }
 }
