@@ -10,7 +10,7 @@ class HomeCest
     {
         $I->amOnPage('site/index');
         $I->see('Prato do dia');
-
+//uklk
         $I->seeLink('Sobre');
         $I->click('Sobre');
         $I->wait(2);
