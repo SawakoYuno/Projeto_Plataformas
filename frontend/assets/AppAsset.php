@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
         'css/imagem.css',
     ];
     public $js = [
+        'js/costum.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

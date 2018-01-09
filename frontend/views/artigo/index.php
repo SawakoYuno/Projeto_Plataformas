@@ -1,5 +1,6 @@
 <?php
 
+use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\models\Artigo;
@@ -14,52 +15,44 @@ $this->title = 'Artigos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="artigo-index">
-
-    <h1><strong>Entradas</strong></h1>
-
-
     <?php
-    $artigos = Artigo::find()
-        ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
-        ->where('artigo.id_tipo_artigo =1')
-        ->all();
+    Modal::begin([
+            'header'=>"<h4 id ='nome'></h4>",
+            'id' => 'modal',
+        'closeButton' => [
+            'label' => 'Close',
+            'class' => 'btn btn-danger btn-sm pull-right',
+        ],
+        'size' => 'modal-md',
+    ]);
     ?>
-
+    <div align="center">
+    <?= Html::img('', ['id' => 'imagem', 'class' =>'imagem-detalhes'])?>
+    </div>
+    <div id="preco"></div>
+    <div id="detalhes"></div>
+    <?php
+    Modal::end();
+    ?>
+    <h1><strong>Entradas</strong></h1>
 
     <div class="row">
         <?php
         foreach ($artigos as $artigo) {
-        $tipoartigo = TipoArtigo::find()
-            ->where(['id' => $artigo->id_tipo_artigo])
-            ->one();
+            if ($artigo->idTipoArtigo->id == 1){
         ?>
         <div class="col-6 col-md-4">
-
-
-
-            <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
-
+          <a href="javacript:" class="view-artigo" data-link="<?=Url::toRoute(['artigo/detalhes'])?>" data-id="<?= $artigo->id ?>">
+              <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
+          </a>
             <div id="textoImgEmenta"><?= $artigo->nome;?></div>
-
         </div>
-        <?php }?>
-
+        <?php }}?>
     </div>
 
+
+
     <h1><strong>Carnes</strong></h1>
-
-
-    <?php
-    $artigos = Artigo::find()
-        ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
-        ->where('artigo.id_tipo_artigo =2')
-        ->all();
-
-
-
-    ?>
-
-
     <div class="row">
         <?php
         foreach ($artigos as $artigo) {
@@ -82,15 +75,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><strong>Peixes</strong></h1>
 
 
-    <?php
-    $artigos = Artigo::find()
-        ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
-        ->where('artigo.id_tipo_artigo =3')
-        ->all();
 
-
-
-    ?>
 
 
     <div class="row">
@@ -113,12 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <h1><strong>Sobremesas</strong></h1>
-    <?php
-    $artigos = Artigo::find()
-        ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
-        ->where('artigo.id_tipo_artigo =4')
-        ->all();
-    ?>
+
 
 
     <div class="row">
@@ -137,14 +117,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php }?>
     </div>
     <h1><strong>Sopas</strong></h1>
-
-
-    <?php
-    $artigos = Artigo::find()
-        ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
-        ->where('artigo.id_tipo_artigo =5')
-        ->all();
-    ?>
 
 
     <div class="row">

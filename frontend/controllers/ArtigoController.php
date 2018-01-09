@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\TipoArtigo;
 use Yii;
 use common\models\Artigo;
 use yii\data\ActiveDataProvider;
@@ -9,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\Response;
 use yii\web\UploadedFile;
 
 /**
@@ -68,12 +70,12 @@ class ArtigoController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Artigo::find(),
-        ]);
+        $artigos = Artigo::find()
+        ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
+        ->all();
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'artigos' => $artigos,
         ]);
     }
 
@@ -154,6 +156,11 @@ class ArtigoController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionDetalhes($id){
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return Artigo::findOne(['id'=>$id]);
+    }
+
     /**
      * Finds the Artigo model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -168,10 +175,5 @@ class ArtigoController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-
-    public function actionDetalhes()
-    {
-        return $this->render('detalhes');
     }
 }
