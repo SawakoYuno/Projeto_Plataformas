@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\TipoArtigo;
 use Yii;
 use common\models\Artigo;
 use yii\data\ActiveDataProvider;
@@ -9,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\Response;
 use yii\web\UploadedFile;
 
 /**
@@ -33,7 +35,6 @@ class ArtigoController extends Controller
                     [
                         'actions' => ['view', 'index'],
                         'allow' => true,
-                        'roles' => ['?'],
                     ],
                     [
                         'actions' => ['delete', 'index'],
@@ -44,6 +45,10 @@ class ArtigoController extends Controller
                         'actions' => ['create', 'index'],
                         'allow' => true,
                         'roles' => ['admin'],
+                    ],
+                    [
+                        'actions' => ['detalhes', 'index'],
+                        'allow' => true,
                     ],
                 ],
             ],
@@ -63,12 +68,12 @@ class ArtigoController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Artigo::find(),
-        ]);
+        $artigos = Artigo::find()
+        ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
+        ->all();
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'artigos' => $artigos,
         ]);
     }
 
@@ -147,6 +152,11 @@ class ArtigoController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionDetalhes($id){
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return Artigo::findOne(['id'=>$id]);
     }
 
     /**
