@@ -35,7 +35,6 @@ class ArtigoController extends Controller
                     [
                         'actions' => ['view', 'index'],
                         'allow' => true,
-                        'roles' => ['?'],
                     ],
                     [
                         'actions' => ['delete', 'index'],
@@ -50,7 +49,6 @@ class ArtigoController extends Controller
                     [
                         'actions' => ['detalhes', 'index'],
                         'allow' => true,
-                        'roles' => ['?'],
                     ],
                 ],
             ],
