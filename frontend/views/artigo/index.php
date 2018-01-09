@@ -11,7 +11,7 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Artigos';
+$this->title = 'Ementa';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="artigo-index">
@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php
     Modal::end();
     ?>
+
     <h1><strong>Entradas</strong></h1>
 
     <div class="row">
@@ -50,93 +51,71 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php }}?>
     </div>
 
+    <h1><strong>Sopas</strong></h1>
 
-
-    <h1><strong>Carnes</strong></h1>
     <div class="row">
         <?php
         foreach ($artigos as $artigo) {
-            $tipoartigo = TipoArtigo::find()
-                ->where(['id' => $artigo->id_tipo_artigo])
-                ->one();
-            ?>
-            <div class="col-6 col-md-4">
+            if ($artigo->idTipoArtigo->id == 6){
+                ?>
+                <div class="col-6 col-md-4">
+                    <a href="javacript:" class="view-artigo" data-link="<?=Url::toRoute(['artigo/detalhes'])?>" data-id="<?= $artigo->id ?>">
+                        <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
+                    </a>
+                    <div id="textoImgEmenta"><?= $artigo->nome;?></div>
+                </div>
+            <?php }}?>
+    </div>
 
-                <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
+    <h1><strong>Carnes</strong></h1>
 
-
-                <div id="textoImgEmenta"><?= $artigo->nome;?></div>
-
-            </div>
-        <?php }?>
-
+    <div class="row">
+        <?php
+        foreach ($artigos as $artigo) {
+            if ($artigo->idTipoArtigo->id == 2){
+                ?>
+                <div class="col-6 col-md-4">
+                    <a href="javacript:" class="view-artigo" data-link="<?=Url::toRoute(['artigo/detalhes'])?>" data-id="<?= $artigo->id ?>">
+                        <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
+                    </a>
+                    <div id="textoImgEmenta"><?= $artigo->nome;?></div>
+                </div>
+            <?php }}?>
     </div>
 
     <h1><strong>Peixes</strong></h1>
 
-
-
-
-
     <div class="row">
         <?php
         foreach ($artigos as $artigo) {
-            $tipoartigo = TipoArtigo::find()
-                ->where(['id' => $artigo->id_tipo_artigo])
-                ->one();
-            ?>
-            <div class="col-6 col-md-4">
-
-                <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
-
-
-                <div id="textoImgEmenta"><?= $artigo->nome;?></div>
-
-            </div>
-        <?php }?>
-
+            if ($artigo->idTipoArtigo->id == 3){
+                ?>
+                <div class="col-6 col-md-4">
+                    <a href="javacript:" class="view-artigo" data-link="<?=Url::toRoute(['artigo/detalhes'])?>" data-id="<?= $artigo->id ?>">
+                        <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
+                    </a>
+                    <div id="textoImgEmenta"><?= $artigo->nome;?></div>
+                </div>
+            <?php }}?>
     </div>
 
     <h1><strong>Sobremesas</strong></h1>
 
-
-
     <div class="row">
         <?php
         foreach ($artigos as $artigo) {
-            $tipoartigo = TipoArtigo::find()
-                ->where(['id' => $artigo->id_tipo_artigo])
-                ->one();
-            ?>
-            <div class="col-6 col-md-4">
-
-                <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
-
-                <div id="textoImgEmenta"><?= $artigo->nome;?></div>
-            </div>
-        <?php }?>
+            if ($artigo->idTipoArtigo->id == 4){
+                ?>
+                <div class="col-6 col-md-4">
+                    <a href="javacript:" class="view-artigo" data-link="<?=Url::toRoute(['artigo/detalhes'])?>" data-id="<?= $artigo->id ?>">
+                        <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
+                    </a>
+                    <div id="textoImgEmenta"><?= $artigo->nome;?></div>
+                </div>
+            <?php }}?>
     </div>
-    <h1><strong>Sopas</strong></h1>
 
 
-    <div class="row">
-        <?php
-        foreach ($artigos as $artigo) {
-            $tipoartigo = TipoArtigo::find()
-                ->where(['id' => $artigo->id_tipo_artigo])
-                ->one();
-            ?>
-            <div class="col-6 col-md-4">
-
-                <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
-
-
-                <div id="textoImgEmenta"><?= $artigo->nome;?></div>
-
-            </div>
-        <?php }?>
-
-    </div>
 
 
 </div>
