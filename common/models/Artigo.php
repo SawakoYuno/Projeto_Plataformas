@@ -39,7 +39,7 @@ class Artigo extends \yii\db\ActiveRecord
             [['id_tipo_artigo', 'quantidade'], 'integer'],
             [['preco'], 'number'],
             [['nome'], 'string', 'max' => 25],
-            [['detalhes'], 'string', 'max' => 100],
+            [['detalhes'], 'string', 'max' => 1000],
             [['imagem_artigo'], 'string', 'max' => 200],
             [['id_tipo_artigo'], 'exist', 'skipOnError' => true, 'targetClass' => TipoArtigo::className(), 'targetAttribute' => ['id_tipo_artigo' => 'id']],
         ];
