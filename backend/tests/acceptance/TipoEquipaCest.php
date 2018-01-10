@@ -29,10 +29,10 @@ class HomCest
         $I->see('VANILLA');
 
         $I->click('Equipas');
-        $I->wait(5);
+        $I->wait(2);
 
         $I->click('Tipo de Equipas');
-        $I->wait(5);
+        $I->wait(2);
 
     }
 
