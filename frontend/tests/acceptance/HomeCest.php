@@ -14,7 +14,7 @@ class HomeCest
     {
         $I->amOnPage(Url::toRoute('/site/index'));
         $I->wait(5);
-        $I->see('Prato do dia');
+        $I->see('Especialidades');
 
         $I->seeLink('Sobre');
         $I->click('Sobre');

@@ -1,5 +1,10 @@
 class_name: FunctionalTester
 modules:
     enabled:
-        - Filesystem
-        - Yii2
+        - WebDriver
+        - Yii2:
+            part: [init, orm, fixtures]
+    config:
+        WebDriver:
+            url: http://localhost:8080
+            browser: chrome
