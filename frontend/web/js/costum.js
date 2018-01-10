@@ -11,7 +11,7 @@ $('.view-artigo').on('click',function(){
         }).then(function(dados) {
             $('#nome').text(dados.nome);
             $('#imagem').attr('src', '/Projeto_Plataformas/images/artigos/'+dados.imagem_artigo);
-            $('#detalhes').text("Detalhes: " + dados.detalhes);
+            $('#detalhes').text(dados.detalhes);
             $('#preco').text("Preço: " + dados.preco + "€");
 
     });
