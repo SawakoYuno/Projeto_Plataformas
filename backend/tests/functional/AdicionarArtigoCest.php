@@ -32,7 +32,7 @@ class AdicionarArtigoCest
     }
     /**
      * @param FunctionalTester $I
-     */
+     *//**/
     public function adicionar(FunctionalTester $I)
     {
         $I->am('guest');
