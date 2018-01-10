@@ -12,5 +12,5 @@
  *
  * ```php
  * \Codeception\Util\Fixtures::get('user1');
- * ```
+ * 5```
  */
