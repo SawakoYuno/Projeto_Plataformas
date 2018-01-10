@@ -21,11 +21,11 @@ class SignupCest
         $I->amOnPage('/site/signup');
         $I->see('Signup');
 
-        $I->fillField('#signupform-username', 'jessica');
+        $I->fillField('#signupform-username', 'jessicaaa');
         $I->fillField('#signupform-nome', 'jessica');
-        $I->fillField('#signupform-email', 'jessica123@vanilla.pt');
-        $I->fillField('#signupform-numerotelefone', '919919919');
-        $I->fillField('#signupform-morada', 'ilha das flores');
+        $I->fillField('#signupform-email', 'jessica1243@vanilla.pt');
+        $I->fillField('#signupform-numerotelefone', '918456732');
+        $I->fillField('#signupform-morada', 'ilha das floress');
         $I->fillField('#signupform-password', 'jessica123');
 
         $I->click('Signup');
