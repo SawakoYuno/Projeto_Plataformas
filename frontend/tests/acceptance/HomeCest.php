@@ -6,11 +6,16 @@ use yii\helpers\Url;
 
 class HomeCest
 {
+    public function _before(AcceptanceTester $I)
+    {
+    }
+
     public function checkHome(AcceptanceTester $I)
     {
-        $I->amOnPage('site/index');
+        $I->amOnPage(Url::toRoute('/site/index'));
+        $I->wait(5);
         $I->see('Prato do dia');
-//uklk
+
         $I->seeLink('Sobre');
         $I->click('Sobre');
         $I->wait(2);
