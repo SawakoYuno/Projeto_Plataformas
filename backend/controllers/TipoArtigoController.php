@@ -61,12 +61,10 @@ class TipoArtigoController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => TipoArtigo::find(),
-        ]);
+        $tipoartigos = TipoArtigo::find()->all();
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'tipoartigos' => $tipoartigos,
         ]);
     }
 

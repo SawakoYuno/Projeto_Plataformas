@@ -26,7 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <table class="table">
                 <tr>
-                    <th>#</th>
                     <th>Tipo Artigo</th>
                     <th>Nome</th>
                     <th>Destalhes</th>
@@ -36,16 +35,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 </tr>
                 <?php
-                $artigos = Artigo::find()->all();
 
                 foreach ($artigos as $artigo) {
-                    $tipoartigo = TipoArtigo::find()
-                        ->where(['id' => $artigo->id_tipo_artigo])
-                        ->one();
                     ?>
                     <tr>
-                        <td>  <?= $artigo->id;?></td>
-                        <td>  <?= $tipoartigo->nome;?></td>
+                        <td>  <?= $artigo->idTipoArtigo->nome;?></td>
                         <td>  <?= $artigo->nome;?></td>
                         <td>  <?= $artigo->detalhes;?></td>
                         <td>  <?= $artigo->preco;?></td>

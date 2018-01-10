@@ -6,15 +6,12 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Reserva */
 
-$this->title = $model->id;
-
-
+$this->params['breadcrumbs'][] = ['label' => 'Reservas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reserva-view">
 
-    <h1><strong>Pedido enviado com sucesso!</strong></h1>
-    <p>Irá ser contactado dentro de minutos.</p>
-
-
-
+        <h1 id="reserva-sucesso">
+            Reserva efetuada com sucesso!
+        </h1>
 </div>

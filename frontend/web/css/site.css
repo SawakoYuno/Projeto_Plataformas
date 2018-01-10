@@ -120,4 +120,8 @@ a.desc:after {
     outline: none;
 }
 
+#reserva-sucesso {
+    text-align: center;
+    margin-top: 150px;
+}
 

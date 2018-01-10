@@ -1,7 +1,5 @@
 <?php
-
 namespace frontend\controllers;
-
 use common\models\TipoArtigo;
 use Yii;
 use common\models\Artigo;
@@ -12,7 +10,6 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Response;
 use yii\web\UploadedFile;
-
 /**
  * ArtigoController implements the CRUD actions for Artigo model.
  */
@@ -56,7 +53,6 @@ class ArtigoController extends Controller
                     ],
                 ],
             ],
-
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -65,7 +61,6 @@ class ArtigoController extends Controller
             ],
         ];
     }
-
     /**
      * Lists all Artigo models.
      * @return mixed
@@ -73,14 +68,12 @@ class ArtigoController extends Controller
     public function actionIndex()
     {
         $artigos = Artigo::find()
-        ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
-        ->all();
-
+            ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
+            ->all();
         return $this->render('index', [
             'artigos' => $artigos,
         ]);
     }
-
     /**
      * Displays a single Artigo model.
      * @param integer $id
@@ -92,7 +85,6 @@ class ArtigoController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-
     /**
      * Creates a new Artigo model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -101,9 +93,7 @@ class ArtigoController extends Controller
     public function actionCreate()
     {
         $model = new Artigo();
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
             $artigoId = $model->nome;
             $image = UploadedFile::getInstance($model, 'imagem_artigo');
             $imgName = 'artigo_' . $artigoId . '.' . $image->getExtension();
@@ -117,7 +107,6 @@ class ArtigoController extends Controller
             ]);
         }
     }
-
     /**
      * Updates an existing Artigo model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -127,15 +116,12 @@ class ArtigoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post()) &&  $model->save()) {
-
             $artigoId = $model->nome;
             $image = UploadedFile::getInstance($model, 'imagem_artigo');
             $imgName = 'artigo_' . $artigoId . '.' . $image->getExtension();
             $image->saveAs(Yii::getAlias('@artigoImgPath') . '/' . $imgName);
             $model->imagem_artigo = $imgName;
-
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -144,7 +130,6 @@ class ArtigoController extends Controller
             ]);
         }
     }
-
     /**
      * Deletes an existing Artigo model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -154,26 +139,21 @@ class ArtigoController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
         return $this->redirect(['index']);
     }
-
     public function actionDetalhes($id){
         Yii::$app->response->format = Response::FORMAT_JSON;
         return Artigo::findOne(['id'=>$id]);
     }
-
     public function actionBebidas()
     {
         $artigos = Artigo::find()
             ->join('JOIN', 'tipo_artigo', 'tipo_artigo.id = artigo.id_tipo_artigo')
             ->all();
-
         return $this->render('bebidas', [
             'artigos' => $artigos,
         ]);
     }
-
     /**
      * Finds the Artigo model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

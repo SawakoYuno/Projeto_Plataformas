@@ -1,24 +1,20 @@
 <?php
-
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\models\Artigo;
 use common\models\TipoArtigo;
 use yii\helpers\Url;
-
-
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Ementa';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="artigo-index">
     <?php
     Modal::begin([
-            'header'=>"<h4 id ='nome'></h4>",
-            'id' => 'modal',
+        'header'=>"<h4 id ='nome'></h4>",
+        'id' => 'modal',
         'closeButton' => [
             'label' => 'Fechar',
             'class' => 'btn btn-danger btn-sm pull-right',
@@ -28,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
 
     <div align="center">
-    <?= Html::img('', ['id' => 'imagem', 'class' =>'imagem-detalhes'])?>
+        <?= Html::img('', ['id' => 'imagem', 'class' =>'imagem-detalhes'])?>
     </div>
     <div id="preco"></div>
     <div id="detalhes"></div>
@@ -42,14 +38,14 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php
         foreach ($artigos as $artigo) {
             if ($artigo->idTipoArtigo->id == 1){
-        ?>
-        <div class="col-6 col-md-4">
-          <a href="javacript:" class="view-artigo" data-link="<?=Url::toRoute(['artigo/detalhes'])?>" data-id="<?= $artigo->id ?>">
-              <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
-          </a>
-            <div id="textoImgEmenta"><?= $artigo->nome;?></div>
-        </div>
-        <?php }}?>
+                ?>
+                <div class="col-6 col-md-4">
+                    <a href="javacript:" class="view-artigo" data-link="<?=Url::toRoute(['artigo/detalhes'])?>" data-id="<?= $artigo->id ?>">
+                        <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-ementa'])?>
+                    </a>
+                    <div id="textoImgEmenta"><?= $artigo->nome;?></div>
+                </div>
+            <?php }}?>
     </div>
 
     <h1><strong>Sopas</strong></h1>
@@ -115,8 +111,4 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             <?php }}?>
     </div>
-
-
-
-
 </div>

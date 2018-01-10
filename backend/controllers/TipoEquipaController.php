@@ -61,12 +61,11 @@ class TipoEquipaController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => TipoEquipa::find(),
-        ]);
+        $tipoequipas = TipoEquipa::find()->all();
+
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'tipoequipas' => $tipoequipas,
         ]);
     }
 

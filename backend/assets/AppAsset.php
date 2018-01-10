@@ -62,6 +62,7 @@ class AppAsset extends AssetBundle
         'js/sparklines.js',
         'js/charts.js',
         'js/jquery.slimscroll.min.js',
+        'js/costum.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

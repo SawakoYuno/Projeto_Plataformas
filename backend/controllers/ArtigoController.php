@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Artigo;
+use common\models\TipoArtigo;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -63,13 +64,12 @@ class ArtigoController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Artigo::find(),
-        ]);
+        $artigos = Artigo::find()->all();
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
+            return $this->render('index', [
+                'artigos' => $artigos,
+            ]);
+
     }
 
     /**
@@ -79,8 +79,11 @@ class ArtigoController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
+        $artigos = Artigo::find()->all();
+
+        return $this->render('index', [
+            'artigos' => $artigos,
+
         ]);
     }
 

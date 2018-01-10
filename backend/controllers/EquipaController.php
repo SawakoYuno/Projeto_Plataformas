@@ -61,12 +61,10 @@ class EquipaController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Equipa::find(),
-        ]);
+        $equipas = Equipa::find()->all();
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'equipas' => $equipas,
         ]);
     }
 

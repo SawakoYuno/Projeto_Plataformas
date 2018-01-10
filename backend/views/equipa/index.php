@@ -26,20 +26,14 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <table class="table">
                 <tr>
-                    <th>#</th>
                     <th>Tipo Equipa</th>
                     <th>Nome</th>
                 </tr>
                 <?php
-                $equipas = Equipa::find()->all();
                 foreach ($equipas as $equipa) {
-                    $tipoequipa = TipoEquipa::find()
-                        ->where(['id' => $equipa->id_tipo_equipa])
-                        ->one();
                     ?>
                         <tr>
-                            <td>  <?= $equipa->id;?></td>
-                            <td>  <?= $tipoequipa->tipo;?></td>
+                            <td>  <?= $equipa->idTipoEquipa->tipo;?></td>
                             <td>  <?= $equipa->nome;?></td>
                             <td>
                                 <a href="<?=Url::toRoute(['artigo/update', 'id'=>$equipa->id])?>" title="Atualizar" aria-label="Atualizar" data-pjax="0">

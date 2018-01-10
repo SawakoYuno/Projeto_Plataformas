@@ -62,7 +62,7 @@ AppAsset::register($this);
                 <ul class="dropdown-menu extended logout">
                     <div class="log-arrow-up"></div>
                     <li class="eborder-top">
-                        <a href="#"><i class="icon_profile"></i> My Profile</a>
+                        <a href="<?=Url::toRoute(['user/update?id='. Yii::$app->user->getIdentity()->id])?>""><i class="icon_profile"></i> My Profile</a>
                     </li>
                     <li>
                         <a href="<?=Url::toRoute(['site/logout'])?>" data-method="post"><i class="icon_key_alt"></i> Log Out</a>
@@ -106,7 +106,7 @@ AppAsset::register($this);
                 </a>
                 <ul class="sub">
                     <li><a class="" href="<?=Url::toRoute(['empregado/index'])?>">Empregados</a></li>
-                    <li><a class="" href="<?=Url::toRoute(['site/index'])?>">Clientes</a></li>
+                    <li><a class="" href="<?=Url::toRoute(['cliente/index'])?>">Clientes</a></li>
                 </ul>
             </li>
             <li class="sub-menu">

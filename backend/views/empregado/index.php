@@ -26,8 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <table class="table">
                 <tr>
-                    <th>#</th>
-                    <th>Nome:</th>
+                    <th>Username</th>
                     <th>Email</th>
                     <th>Nome</th>
                     <th>Equipa</th>
@@ -37,23 +36,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 </tr>
                 <?php
-                $empregados = Empregado::find()->all();
                 foreach ($empregados as $empregado) {
-                    $utilizadore = User::findIdentity($empregado->id_user);
-                    $equipa = Equipa::find()
-                        ->where(['id' => $empregado->id_equipa])
-                        ->one();                        ?>
+                    ?>
                         <tr>
-                            <td>  <?= $empregado->id_user;?></td>
-                            <td>  <?= $utilizadore->username;?></td>
+                            <td>  <?= $empregado->idUser->username;?></td>
                             <td>  <?= $empregado->email;?></td>
                             <td>  <?= $empregado->nome;?></td>
-                            <td>  <?= $equipa->nome;?></td>
+                            <td>  <?= $empregado->idEquipa->nome;?></td>
                             <td>  <?= $empregado->n_empregado;?></td>
                             <td>  <?= $empregado->salario;?></td>
                             <td>  <?= $empregado->horario;?></td>
-
-
                         </tr>
                     <?php }?>
             </table>

@@ -5,11 +5,10 @@ namespace frontend\controllers;
 use Yii;
 use common\models\Reserva;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-
 
 /**
  * ReservaController implements the CRUD actions for Reserva model.
@@ -26,11 +25,14 @@ class ReservaController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view', 'index'],
+                        'actions' => ['update', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-
+                    [
+                        'actions' => ['view', 'index'],
+                        'allow' => true,
+                    ],
                     [
                         'actions' => ['create', 'index'],
                         'allow' => true,
@@ -38,7 +40,6 @@ class ReservaController extends Controller
                     ],
                 ],
             ],
-
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

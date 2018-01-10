@@ -16,5 +16,19 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Reserva', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
 
+            'id',
+            'nome',
+            'numeroTelefone',
+            'quantidade_pessoas',
+            'horario',
+            // 'id_mesa',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 </div>

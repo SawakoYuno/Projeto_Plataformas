@@ -62,12 +62,10 @@ class EmpregadoController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Empregado::find(),
-        ]);
+        $empregados = Empregado::find()->all();
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'empregados' => $empregados,
         ]);
     }
 

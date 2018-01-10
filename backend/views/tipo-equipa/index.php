@@ -25,16 +25,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <table class="table">
                 <tr>
-                    <th>#</th>
                     <th>Tipo</th>
                     <th>Destalhes</th>
                 </tr>
                 <?php
-                $tipoequipas = TipoEquipa::find()->all();
                 foreach ($tipoequipas as $tipoequipa) {
                     ?>
                     <tr>
-                        <td>  <?= $tipoequipa->id;?></td>
                         <td>  <?= $tipoequipa->tipo;?></td>
                         <td>  <?= $tipoequipa->detalhes;?></td>
                         <td>
