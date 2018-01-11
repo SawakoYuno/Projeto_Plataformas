@@ -45,9 +45,6 @@ class AdicionarArtigoCest
         //$I->see('Create Artigo');
         $I->click('Create Artigo');
 
-
-        /*$I->click('#artigo-id_tipo_artigo');
-        $I->click('Entradas');*/
         $I->selectOption('#artigo-id_tipo_artigo','Entradas');
         $I->fillField('#artigo-nome', 'xixinha');
         $I->fillField('#artigo-detalhes', 'xpto');
