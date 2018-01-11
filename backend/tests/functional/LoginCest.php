@@ -13,12 +13,12 @@ class LoginCest
     public function _before(FunctionalTester $I)
     {
 //        Serve para carregar um ficheiro com dados para usar nos testes (pasta tests > _data)
-        /*$I->haveFixtures([
+        $I->haveFixtures([
             'user' => [
                 'class' => UserFixture::className(),
                 'dataFile' => codecept_data_dir() . 'login_data.php'
             ]
-        ]);*/
+        ]);
 
     }
     /**
@@ -28,10 +28,9 @@ class LoginCest
     {
         $I->am('guest');
         $I->amOnPage('/site/login');
-        $I->see('Entrar');
 
         $I->fillField('#loginform-username', 'admin');
-        $I->fillField('#loginform-password', 'joao_1428');
+        $I->fillField('#loginform-password', 'password_0');
 
         $I->click('Entrar');
 
