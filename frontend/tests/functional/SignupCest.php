@@ -17,7 +17,7 @@ class SignupCest
 
     public function signupUser(FunctionalTester $I)
     {
-        $I->am('guest');
+
         $I->amOnPage('/site/signup');
         $I->see('Signup');
 
@@ -28,8 +28,8 @@ class SignupCest
         $I->fillField('#signupform-morada', 'ilha das floress');
         $I->fillField('#signupform-password', 'jessica123');
 
-        $I->click('Signup');
-
+        $I->click('Criar conta');
         $I->see('Pretende');
+
     }
 }

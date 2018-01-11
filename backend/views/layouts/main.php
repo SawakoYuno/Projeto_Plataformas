@@ -95,7 +95,7 @@ AppAsset::register($this);
                 </a>
                 <ul class="sub">
                     <li><a class="" href="<?=Url::toRoute(['tipo-artigo/index'])?>">Tipo de Artigos</a></li>
-                    <li><a class="" href="<?=Url::toRoute(['artigo/index'])?>">Artigos</a></li>
+                    <li><a class="" href="<?=Url::toRoute(['artigo/index'])?>">Artigo</a></li>
                 </ul>
             </li>
             <li class="sub-menu">

@@ -10,23 +10,24 @@ class HomCest
 {
     public function _before(AcceptanceTester $I)
     {
+        $I->haveFixtures([
+            'user' => [
+                'class' => UserFixture::className(),
+                'dataFile' => codecept_data_dir() . 'login_data.php'
+            ]
+        ]);
 
-        $I->amOnPage('site/login');
-
-       /* $I->submitForm('#login-form',  [
-            'LoginForm[username]' => 'admin',
-            'LoginForm[password]' => 'joao_1428',
-        ]);*/
+        $I->amOnPage(Url::toRoute('/site/login'));
 
         $I->fillField('#loginform-username', 'admin');
         $I->wait(2);
-        $I->fillField('#loginform-password', 'joao_1428');
+        $I->fillField('#loginform-password', 'password_0');
         $I->wait(2);
 
         $I->click('Entrar');
         $I->wait(5);
 
-        $I->see('VANILLA');
+        $I->see('Vanilla');
 
         $I->click('Equipas');
         $I->wait(2);

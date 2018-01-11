@@ -5,14 +5,13 @@ namespace backend\tests\functional;
 use backend\tests\FunctionalTester;
 use common\fixtures\UserFixture;
 
-/**
- * Class LoginCest
- */
-class LoginCest
+class GerirEquipasCest
 {
+
+
+
     public function _before(FunctionalTester $I)
     {
-//        Serve para carregar um ficheiro com dados para usar nos testes (pasta tests > _data)
         $I->haveFixtures([
             'user' => [
                 'class' => UserFixture::className(),
@@ -20,12 +19,6 @@ class LoginCest
             ]
         ]);
 
-    }
-    /**
-     * @param FunctionalTester $I
-     */
-    public function loginUser(FunctionalTester $I)
-    {
         $I->am('guest');
         $I->amOnPage('/site/login');
 
@@ -34,6 +27,24 @@ class LoginCest
 
         $I->click('Entrar');
 
-        $I->see('VANILLA');
+        $I->see('Vanilla');
+
+
+    }
+
+    public function GerirEquipas(FunctionalTester $I)
+    {
+        $I->amOnPage('equipa/index');
+
+        $I->click('Create Equipa');
+        $I->see('Create Equipa');
+
+        $I->fillField('#equipa-nome','XPTO Equipa');
+        $I->selectOption('#equipa-id_tipo_equipa', 'empregado de cozinha');
+
+        $I->click('Create');
+        $I->dontSee('Create Equipa');
+
+
     }
 }
