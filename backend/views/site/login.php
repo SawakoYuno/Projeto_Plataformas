@@ -23,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'password')
                     ->passwordInput(['class' => 'form-control', 'placeholder' => 'Palavra-passe'])
                     ?>
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
                 <div class="form-group">
                     <?= Html::submitButton('Entrar', ['class' => 'btn btn-info btn-lg btn-block', 'name' => 'login-button']) ?>
                 </div>

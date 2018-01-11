@@ -82,7 +82,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validaUser(Yii::$app->authManager->getRole('admin'))) {
             if($model->login()){
-                return $this->goBack();
+                return $this->redirect(['pedidos-em-artigo/index']);
             }else{
                 return $this->render('login', [
                     'model' => $model,
