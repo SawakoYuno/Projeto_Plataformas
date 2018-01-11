@@ -3,17 +3,18 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\TipoEquipa;
+use common\models\Pedidos;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 
 /**
- * TipoEquipaController implements the CRUD actions for TipoEquipa model.
+ * PedidosController implements the CRUD actions for Pedidos model.
  */
-class TipoEquipaController extends Controller
+class PedidosController extends Controller
 {
     /**
      * @inheritdoc
@@ -56,21 +57,22 @@ class TipoEquipaController extends Controller
     }
 
     /**
-     * Lists all TipoEquipa models.
+     * Lists all Pedidos models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $tipoequipas = TipoEquipa::find()->all();
-
+        $dataProvider = new ActiveDataProvider([
+            'query' => Pedidos::find(),
+        ]);
 
         return $this->render('index', [
-            'tipoequipas' => $tipoequipas,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single TipoEquipa model.
+     * Displays a single Pedidos model.
      * @param integer $id
      * @return mixed
      */
@@ -82,16 +84,16 @@ class TipoEquipaController extends Controller
     }
 
     /**
-     * Creates a new TipoEquipa model.
+     * Creates a new Pedidos model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new TipoEquipa();
+        $model = new Pedidos();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -100,7 +102,7 @@ class TipoEquipaController extends Controller
     }
 
     /**
-     * Updates an existing TipoEquipa model.
+     * Updates an existing Pedidos model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -110,7 +112,7 @@ class TipoEquipaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -119,7 +121,7 @@ class TipoEquipaController extends Controller
     }
 
     /**
-     * Deletes an existing TipoEquipa model.
+     * Deletes an existing Pedidos model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -131,16 +133,18 @@ class TipoEquipaController extends Controller
         return $this->redirect(['index']);
     }
 
+
+
     /**
-     * Finds the TipoEquipa model based on its primary key value.
+     * Finds the Pedidos model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return TipoEquipa the loaded model
+     * @return Pedidos the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = TipoEquipa::findOne($id)) !== null) {
+        if (($model = Pedidos::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

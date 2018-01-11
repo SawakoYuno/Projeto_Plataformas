@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use common\models\TipoEquipa;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
@@ -16,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Criar Tipo Equipa', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Tipo Equipa', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -25,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <table class="table">
                 <tr>
-                    <th>Tipo</th>
+                    <th>Nome</th>
                     <th>Destalhes</th>
                 </tr>
                 <?php

@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td>  <?= $artigo->detalhes;?></td>
                         <td>  <?= $artigo->preco;?></td>
                         <td>  <?= $artigo->quantidade;?></td>
-                        <td> <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-teste']);?></td>
+                        <td> <?= Html::img('/Projeto_Plataformas/images/artigos/'.$artigo->imagem_artigo, ['id' => 'imagem-teste']);?></td>
 
                         <td>
                             <a href="<?=Url::toRoute(['artigo/update', 'id'=>$artigo->id])?>" title="Atualizar" aria-label="Atualizar" data-pjax="0">

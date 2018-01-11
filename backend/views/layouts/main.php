@@ -121,13 +121,13 @@ AppAsset::register($this);
 
                 </ul>
             </li>
-            <li>
-                <a class="" href="chart-chartjs.html">
-                    <i class="icon_piechart"></i>
-                    <span>Charts</span>
-
-                </a>
-            </li>
+<!--            <li>-->
+<!--                <a class="" href="chart-chartjs.html">-->
+<!--                    <i class="icon_piechart"></i>-->
+<!--                    <span>Charts</span>-->
+<!---->
+<!--                </a>-->
+<!--            </li>-->
         </ul>
         <!-- sidebar menu end-->
     </div>
