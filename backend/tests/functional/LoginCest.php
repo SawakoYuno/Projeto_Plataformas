@@ -13,12 +13,12 @@ class LoginCest
     public function _before(FunctionalTester $I)
     {
 //        Serve para carregar um ficheiro com dados para usar nos testes (pasta tests > _data)
-        $I->haveFixtures([
+        /*$I->haveFixtures([
             'user' => [
                 'class' => UserFixture::className(),
                 'dataFile' => codecept_data_dir() . 'login_data.php'
             ]
-        ]);
+        ]);*/
 
     }
     /**
