@@ -38,7 +38,7 @@ AppAsset::register($this);
     </div>
 
     <!--logo start-->
-    <a href="<?=Url::toRoute(['site/index'])?>" class="logo">Vanilla</a>
+    <a href="<?=Url::toRoute(['pedidos-em-artigo/index'])?>" class="logo">Vanilla</a>
 
     <!--logo end-->
 
@@ -82,7 +82,7 @@ AppAsset::register($this);
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
             <li class="active">
-                <a class="" href="<?=Url::toRoute(['site/index'])?>">
+                <a class="" href="<?=Url::toRoute(['pedidos-em-artigo/index'])?>">
                     <i class="icon_house_alt"></i>
                     <span>Home</span>
                 </a>
