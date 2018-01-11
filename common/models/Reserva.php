@@ -32,6 +32,7 @@ class Reserva extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['quantidade_pessoas', 'nome', 'horario', 'numeroTelefone'], 'required'],
             [['quantidade_pessoas', 'id_mesa'], 'integer'],
             [['nome'], 'string', 'max' => 60],
             [['numeroTelefone'], 'string', 'max' => 25],

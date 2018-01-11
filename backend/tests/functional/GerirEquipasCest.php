@@ -34,7 +34,7 @@ class GerirEquipasCest
 
     public function GerirEquipas(FunctionalTester $I)
     {
-        $I->amOnPage('equipa/create');
+        $I->amOnPage('equipa/index');
 
         $I->click('Create Equipa');
         $I->see('Create Equipa');
@@ -43,7 +43,7 @@ class GerirEquipasCest
         $I->selectOption('#equipa-id_tipo_equipa', 'empregado de cozinha');
 
         $I->click('Create');
-        $I->see('Update');
+        $I->dontSee('Create Equipa');
 
 
     }
