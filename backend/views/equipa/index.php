@@ -17,11 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Equipa', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Criar Equipa', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Tipos de Artigo</h3>
+            <h3 class="panel-title">Equipas</h3>
         </div>
         <div class="panel-body">
             <table class="table">

@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Artigo', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Criar Artigo', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <div class="panel panel-default">
         <div class="panel-heading">
