@@ -27,12 +27,9 @@ class AdicionarArtigoCest
         $I->fillField('#loginform-username', 'admin');
         $I->fillField('#loginform-password', 'password_0');
 
-        $I->click('Entrar');;
+        $I->click('Entrar');
+
         $I->see('Vanilla');
-
-        $I->click('Artigos');
-
-        $I->click('Artigo');
 
         //$I->click('Create Artigo');
 
@@ -43,18 +40,23 @@ class AdicionarArtigoCest
      *//**/
     public function adicionar(FunctionalTester $I)
     {
-        //$I->amOnPage('artigo/create');
-        /*
-        $I->click('#artigo-id_tipo_artigo');
-        $I->click('Entradas');
+        $I->amOnPage('artigo/index');
+
+        //$I->see('Create Artigo');
+        $I->click('Create Artigo');
+
+
+        /*$I->click('#artigo-id_tipo_artigo');
+        $I->click('Entradas');*/
+        $I->selectOption('#artigo-id_tipo_artigo','Entradas');
         $I->fillField('#artigo-nome', 'xixinha');
         $I->fillField('#artigo-detalhes', 'xpto');
         $I->fillField('#artigo-preco', '15.25€');
         $I->fillField('#artigo-quantidade', '2');
-        $I->click('#artigo-imagem_artigo', 'artigo_Azeitonas.jpg');
+
+        $I->attachFile('#artigo-imagem_artigo', 'artigo_Banana Split.jpg');
 
         $I->click('Create');
-        */
-        //$I->see('Destalhes');
+
     }
 }
