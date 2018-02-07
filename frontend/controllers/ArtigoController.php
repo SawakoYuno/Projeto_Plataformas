@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 use common\models\TipoArtigo;
+use common\models\User;
 use Yii;
 use common\models\Artigo;
 use yii\data\ActiveDataProvider;

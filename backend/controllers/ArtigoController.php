@@ -126,7 +126,7 @@ class ArtigoController extends Controller
 
             $artigoId = $model->nome;
             $image = UploadedFile::getInstance($model, 'imagem_artigo');
-            $imgName = 'artigo_' . $artigoId . '.' . $image->getExtension();
+            $imgName = 'artigo_' .$artigoId . '.' . $image->getExtension();
             $image->saveAs(Yii::getAlias('@artigoImgPath') . '/' . $imgName);
             $model->imagem_artigo = $imgName;
 
