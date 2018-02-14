@@ -20,13 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
             <table>
               <th>  <div class="col-sm-3">
                     <?= Html::img('/Projeto_Plataformas/images/artigos/'. $artigo->imagem_artigo, ['id' => 'imagem-bebida']);?>
-                </div></th>
+                </div>
+              </th>
                <th>
                     <div class="col-sm-11">
                     <div id="textobebida">  Nome: <?= $artigo->nome;?></div>
                     <div id="textobebida">  Descrição: <?= $artigo->detalhes;?></div>
                     <div id="textobebida">  Preço:  <?= $artigo->preco;?> €</div>
-                </div>
                </th>
             </table>
         <?php }}?>

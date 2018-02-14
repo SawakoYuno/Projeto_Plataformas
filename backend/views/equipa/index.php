@@ -36,10 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             <td>  <?= $equipa->idTipoEquipa->tipo;?></td>
                             <td>  <?= $equipa->nome;?></td>
                             <td>
-                                <a href="<?=Url::toRoute(['artigo/update', 'id'=>$equipa->id])?>" title="Atualizar" aria-label="Atualizar" data-pjax="0">
+                                <a href="<?=Url::toRoute(['equipa/update', 'id'=>$equipa->id])?>" title="Atualizar" aria-label="Atualizar" data-pjax="0">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </a>
-                                <a href="<?=Url::toRoute(['artigo/delete', 'id'=>$equipa->id])?>" title="Apagar" aria-label="Apagar" data-pjax="0"
+                                <a href="<?=Url::toRoute(['equipa/delete', 'id'=>$equipa->id])?>" title="Apagar" aria-label="Apagar" data-pjax="0"
                                    data-confirm="Are you sure you want to delete this item?" data-method="post">
                                     <span class="glyphicon glyphicon-trash"></span></a>
                             </td>

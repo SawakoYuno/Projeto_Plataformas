@@ -34,5 +34,4 @@ $this->title = 'Vanilla';
             <!--           terceira imagem-->
         </div>
     </div>
-    <h5>Pretende degustar de um bom vinho? <?= Html::a('Saiba mais aqui...', ['artigo/bebidas']) ?></h5>
 </div>
